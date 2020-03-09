@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Remove the Comments and fill up the relevant code -->
+
+<style type="text/css">
+
+body{
+	background-color:#FFAACC;
+}
+
+h1
+{
+	color:#770080;
+	font-family:Courier New;
+	font-style :italic;
+	text-align:center;
+
+}
+
+form
+{
+margin :0 auto;
+width:300px;
+}
+
+#result
+{
+	color:#770080;
+	font-weight:bold;
+
+}
+</style>
+
+<title>DREAM Theme Park</title>
+<script type="text/javascript">
+function calculateCharges()
+{
+       var s = document.getElementById("adults").value;
+       var t =document.getElementById("children").value;
+     var btype=document.getElementById("bookingType").value;
+     var e;
+     if(btype == "Normal"){
+        e=0;
+   }
+    else if(btype == "School") {
+        e=50/100;
+    }
+    else if(btype == "Corporate") {
+       
+       e=25/100;
+    }
+     var ticketCost = (s * 1500) + (t * 1200); 
+     var dis= ticketCost*e;
+     var result = ticketCost-dis;
+     document.getElementById("result").innerHTML = "Thank you "+document.getElementById("customerName").value+". Total cost to be paid is "+result; 
+      return false;
+}
+
+</script>
+
+</head>
+<body>
+<!--Write necessary code wherever needed to complete this knock out code challenge  -->
+<h1>Book Your Tickets</h1>
+<form onsubmit=" return calculateCharges()" >
+<table>
+
+<tr>
+<td><label for="customerName">Customer Name</label></td>
+<td><input name="customerName" id="customerName" type="text" required ></td>
+
+<tr>
+<td><label for="Address">Address</label></td>
+<td><textarea name="address" id="Address" rows="5" cols="20" required ></textarea></td>
+</tr>
+
+<tr>
+<td><label for="customerEmail">Email ID</label></td>
+<td><input name="customerEmail" id="customerEmail" type="email"  required></td>
+</tr>
+
+<tr>
+<td><label for="customerMobileNumber">Mobile Number</label></td>
+<td><input name="customerMobileNumber" id="customerMobileNumber" type="text" maxlength="10"  pattern="[7-9]\d{9}" required></td>
+</tr>
+
+<tr>
+<td> <label for="location">Park Location</label></td>
+<td> <input type="radio" id="locationDelhi" name="location" value="delhi" required>Delhi
+<input type="radio" id="locationMumbai" name="location" value="mumbai" reqiured>Mumbai
+</td>
+</tr>
+
+<tr>
+<td><label for="dateOfVisit">Date of Visit</label></td>
+<td><input type="text" id="dateOfVisit" name="dateOfVisit" pattern="^((0|1)\d{1})-((0|1|2)\d{1})-((19|20)\d{2})" required></td>
+</tr>
+
+<tr>
+<td><label for="bookingType">Booking Type</label></td>
+<td>
+<input name="bookingType" id="bookingType" list="bookType" required>
+              <datalist id="bookType">
+              <option value="Normal">
+              <option value="School">
+              <option value="Corporate">
+              
+              </datalist>
+              
+</td>
+</tr>
+
+
+
+<tr>
+<td><label for="adults">Adult</label></td>
+<td><input name="adults" id="adults" type="number" max="500" min="0" required></td>
+</tr>
+
+<tr>
+<td><label for="children">Children</label></td>
+<td><input name="children" id="children" type="number" required></td>
+</tr>
+
+
+<tr>
+<td><input type="submit" name="submit" id="submit" value="Book Now"></td>
+<td><button type="reset" name="reset" id="reset">Clear</button></td>
+</tr>
+
+<tr>
+<td colspan="2">
+<div name="result" id="result" ></div>
+</td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>
+
